@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Summary of Customers Accounts";
+}
+
+<h2 class="bold maroon common-font text-center">Summary of Customers Accounts</h2>
+
+<div align="center">
+    @using (System.Data.SqlClient.SqlConnection scWattsALoan = new System.Data.SqlClient.SqlConnection(System.Configuration.
+                                                                                 ConfigurationManager.
+                                                                                 ConnectionStrings["csWattsALoan"].
+                                                                                 ConnectionString))
+    {
+        System.Data.SqlClient.SqlCommand cmdCustomers =
+            new System.Data.SqlClient.SqlCommand("SELECT LoanNumber, LoanType, CustomerFirstName, CustomerLastName, " +
+                                                 "       LoanAmount, MonthlyPayment, PaymentStartDate " +
+                                                 "FROM   Management.Clients;");
+        cmdCustomers.Connection = scWattsALoan;
+
+        scWattsALoan.Open();
+
+        System.Data.SqlClient.SqlDataAdapter sdaCustomers = new System.Data.SqlClient.SqlDataAdapter(cmdCustomers);
+        System.Data.DataSet dsCustomers = new System.Data.DataSet("clients");
+
+        sdaCustomers.Fill(dsCustomers);
+
+        if (dsCustomers.Tables[0].Rows.Count > 0)
+        {
+            <table class="table table-hover common-font">
+                <tr>
+                    <td class="bold text-center">Loan #</td>
+                    <td class="bold">Loan Type</td>
+                    <td class="bold">Customer Name</td>
+                    <td class="bold">Amount of Loan</td>
+                    <td class="bold">Payment</td>
+                    <td class="bold text-center">Start Date</td>
+                </tr>
+                @foreach (System.Data.DataRow drCustomer in dsCustomers.Tables[0].Rows)
+                {
+                    <tr>
+                        <td class="text-center">@drCustomer["LoanNumber"].ToString()</td>
+                        <td>@drCustomer["LoanType"].ToString()</td>
+                        <td>@drCustomer["CustomerFirstName"].ToString() @drCustomer["CustomerLastName"].ToString()</td>
+                        <td>@drCustomer["LoanAmount"].ToString()</td>
+                        <td>@drCustomer["MonthlyPayment"].ToString()/Month</td>
+                        <td class="text-center">@DateTime.Parse(drCustomer["PaymentStartDate"].ToString()).ToShortDateString()</td>
+                    </tr>
+                }
+            </table>
+        }
+    }
+</div>

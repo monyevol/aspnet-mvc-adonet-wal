@@ -1,0 +1,39 @@
+﻿@model WattsALoan1.Models.Payment
+
+@{
+    ViewBag.Title = "Payment Start-Up";
+}
+
+<h2 class="bold maroon common-font text-center">Payment Start-Up</h2>
+
+@using (Html.BeginForm("PaymentPreparation", "Payments", FormMethod.Post))
+{
+    <div class="containment">
+        <div class="form-horizontal common-font">
+            <div class="heading"><p class="text-center">Payment Received By</p></div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.EmployeeID, htmlAttributes: new { @class = "control-label col-md-5 blue" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.EmployeeID, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="heading"><p class="text-center">Contract Information</p></div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.LoanContractID, htmlAttributes: new { @class = "control-label col-md-5 blue" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.LoanContractID, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+        <p class="text-center">
+            <input type="submit" value="Prepare Loan Payment"
+                   name="btnPrepareLoanPayment" class="btn btn-primary" />
+        </p>
+    </div>
+}

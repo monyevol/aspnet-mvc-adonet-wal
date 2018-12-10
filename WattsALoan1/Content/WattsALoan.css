@@ -1,0 +1,42 @@
+﻿body {
+    background-color: #FFF;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.blue {
+    color: #286090;
+}
+
+.maroon {
+    color: #800000;
+}
+
+.small {
+    width: 20px;
+}
+
+.top-padding {
+    padding-top: 0.50em;
+}
+
+.containment {
+    margin: auto;
+    width: 400px;
+}
+
+.containment1 {
+    margin: auto;
+    width: 500px;
+}
+
+.heading {
+    color: white;
+    background-color: steelblue;
+}
+
+.common-font {
+    font-family: Georgia, Garamond, 'Times New Roman', serif;
+}

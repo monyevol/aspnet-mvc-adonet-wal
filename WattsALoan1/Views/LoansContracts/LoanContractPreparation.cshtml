@@ -1,0 +1,106 @@
+﻿@model WattsALoan1.Models.LoanContract
+
+@{
+    ViewBag.Title = "Loan Contract Preparation";
+}
+
+<h2 class="text-center common-font maroon bold">Loan Contract Preparation</h2>
+
+@using (Html.BeginForm("Create", "LoansContracts", FormMethod.Post))
+{
+    <div class="containment1">
+        <div class="form-horizontal common-font">
+            <div class="heading"><p class="text-center">Contract Setup</p></div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.EmployeeID, htmlAttributes: new { @class = "control-label col-md-3 blue" })
+                <div class="col-md-2">
+                    @Html.EditorFor(model => model.EmployeeID, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                <div class="col-md-6">@ViewBag.EmployeeDetails</div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.DateAllocated, htmlAttributes: new { @class = "control-label col-md-5 blue" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.DateAllocated, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.LoanNumber, htmlAttributes: new { @class = "control-label col-md-5 blue" })
+                <div class="col-md-7">
+                    @Html.TextBox("LoanNumber", ViewBag.LoanNumber as string, htmlAttributes: new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="heading text-center"><p class="text-center">Customer Information</p></div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CustomerFirstName, htmlAttributes: new { @class = "control-label col-md-5 blue" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.CustomerFirstName, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.CustomerLastName, htmlAttributes: new { @class = "control-label col-md-5 blue" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.CustomerLastName, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="heading text-center"><p class="text-center">Loan Details</p></div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.LoanType, htmlAttributes: new { @class = "control-label col-md-5 blue" })
+                <div class="col-md-7">
+                    @Html.DropDownList("LoanType", ViewBag.LoansTypes as SelectList,
+                                       htmlAttributes: new { @class = "form-control col-md-5 blue" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.LoanAmount, htmlAttributes: new { @class = "control-label col-md-5 blue" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.LoanAmount, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.InterestRate, htmlAttributes: new { @class = "control-label col-md-5 blue" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.InterestRate, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Periods, htmlAttributes: new { @class = "control-label col-md-5 blue" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.Periods, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.FutureValue, htmlAttributes: new { @class = "control-label col-md-5 blue" })
+                <div class="col-md-7">
+                    @Html.TextBox("FutureValue", @ViewBag.FutureValue as string, htmlAttributes: new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.InterestAmount, htmlAttributes: new { @class = "control-label col-md-5 blue" })
+                <div class="col-md-7">
+                    @Html.TextBox("InterestAmount", @ViewBag.InterestAmount as string, htmlAttributes: new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.MonthlyPayment, htmlAttributes: new { @class = "control-label col-md-5 blue" })
+                <div class="col-md-7">
+                    @Html.TextBox("MonthlyPayment", @ViewBag.MonthlyPayment as string, htmlAttributes: new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.PaymentStartDate, htmlAttributes: new { @class = "control-label col-md-5 blue" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.PaymentStartDate, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+
+    <p class="text-center"><input type="submit" value="Save Loan Contract" class="btn btn-primary" /></p>
+}

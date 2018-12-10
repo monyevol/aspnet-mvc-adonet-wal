@@ -1,0 +1,52 @@
+﻿@model IEnumerable<WattsALoan1.Models.LoanContract>
+
+@{
+    ViewBag.Title = "Loans Contracts";
+}
+
+<h2 class="bold maroon common-font text-center">Loan Contracts</h2>
+
+<table class="table table-hover common-font">
+    <tr>
+        <th class="text-center">@Html.DisplayNameFor(model => model.LoanContractID)</th>
+        <th class="text-center">@Html.DisplayNameFor(model => model.LoanNumber)</th>
+        <th>@Html.DisplayNameFor(model => model.DateAllocated)</th>
+        <th class="text-center">@Html.DisplayNameFor(model => model.EmployeeID)</th>
+        <th>@Html.DisplayNameFor(model => model.CustomerFirstName)</th>
+        <th>@Html.DisplayNameFor(model => model.CustomerLastName)</th>
+        <th>@Html.DisplayNameFor(model => model.LoanType)</th>
+        <th>@Html.DisplayNameFor(model => model.LoanAmount)</th>
+        <th>@Html.DisplayNameFor(model => model.InterestRate)</th>
+        <th>@Html.DisplayNameFor(model => model.Periods)</th>
+        <th>@Html.DisplayNameFor(model => model.MonthlyPayment)</th>
+        <th>@Html.DisplayNameFor(model => model.FutureValue)</th>
+        <th>@Html.DisplayNameFor(model => model.InterestAmount)</th>
+        <th>@Html.DisplayNameFor(model => model.PaymentStartDate)</th>
+        <th>@Html.ActionLink("New Loan Contract", "LoanContractStartUp")</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="text-center">@Html.DisplayFor(modelItem => item.LoanContractID)</td>
+            <td class="text-center">@Html.DisplayFor(modelItem => item.LoanNumber)</td>
+            <td class="text-center">@Html.DisplayFor(modelItem => item.DateAllocated)</td>
+            <td class="text-center">@Html.DisplayFor(modelItem => item.EmployeeID)</td>
+            <td>@Html.DisplayFor(modelItem => item.CustomerFirstName)</td>
+            <td>@Html.DisplayFor(modelItem => item.CustomerLastName)</td>
+            <td>@Html.DisplayFor(modelItem => item.LoanType)</td>
+            <td class="text-center">@Html.DisplayFor(modelItem => item.LoanAmount)</td>
+            <td class="text-center">@Html.DisplayFor(modelItem => item.InterestRate)</td>
+            <td class="text-center">@Html.DisplayFor(modelItem => item.Periods)</td>
+            <td class="text-center">@Html.DisplayFor(modelItem => item.MonthlyPayment)</td>
+            <td class="text-center">@Html.DisplayFor(modelItem => item.FutureValue)</td>
+            <td class="text-center">@Html.DisplayFor(modelItem => item.InterestAmount)</td>
+            <td class="text-center">@Html.DisplayFor(modelItem => item.PaymentStartDate)</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.LoanContractID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.LoanContractID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.LoanContractID })
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<WattsALoan1.Models.Payment>
+
+@{
+    ViewBag.Title = "Loans Payments";
+}
+
+<h2 class="bold maroon common-font text-center">Loans Payments</h2>
+
+<table class="table table-hover common-font">
+    <tr>
+        <th class="text-center">@Html.DisplayNameFor(model => model.PaymentID)</th>
+        <th>@Html.DisplayNameFor(model => model.ReceiptNumber)</th>
+        <th>@Html.DisplayNameFor(model => model.PaymentDate)</th>
+        <th>@Html.DisplayNameFor(model => model.EmployeeID)</th>
+        <th>@Html.DisplayNameFor(model => model.LoanContractID)</th>
+        <th>@Html.DisplayNameFor(model => model.PaymentAmount)</th>
+        <th>@Html.DisplayNameFor(model => model.Balance)</th>
+        <th>@Html.ActionLink("Make Loan Payment", "PaymentStartUp")</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="text-center">@Html.DisplayFor(modelItem => item.PaymentID)</td>
+            <td>@Html.DisplayFor(modelItem => item.ReceiptNumber)</td>
+            <td>@Html.DisplayFor(modelItem => item.PaymentDate)</td>
+            <td class="text-center">@Html.DisplayFor(modelItem => item.EmployeeID)</td>
+            <td class="text-center">@Html.DisplayFor(modelItem => item.LoanContractID)</td>
+            <td>@Html.DisplayFor(modelItem => item.PaymentAmount)</td>
+            <td>@Html.DisplayFor(modelItem => item.Balance)</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.PaymentID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.PaymentID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.PaymentID })
+            </td>
+        </tr>
+    }
+</table>

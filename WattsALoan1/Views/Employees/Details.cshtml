@@ -1,0 +1,33 @@
+﻿@model WattsALoan1.Models.Employee
+
+@{
+    ViewBag.Title = "Employee Details";
+}
+
+<h2 class="bold text-center common-font maroon">Employee Details</h2>
+
+<hr />
+
+<div class="containment">
+    <dl class="dl-horizontal common-font">
+        <dt>@Html.DisplayNameFor(model => model.EmployeeID)</dt>
+        <dd>@Html.DisplayFor(model => model.EmployeeID)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.EmployeeNumber)</dt>
+        <dd>@Html.DisplayFor(model => model.EmployeeNumber)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.FirstName)</dt>
+        <dd>@Html.DisplayFor(model => model.FirstName)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.LastName)</dt>
+        <dd>@Html.DisplayFor(model => model.LastName)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.EmploymentTitle)</dt>
+        <dd>@Html.DisplayFor(model => model.EmploymentTitle)</dd>
+    </dl>
+</div>
+
+<p class="text-center">
+    @Html.ActionLink("Edit/Update Employee Record", "Edit", new { id = Model.EmployeeID }) ::
+    @Html.ActionLink("Employees", "Index")
+</p>

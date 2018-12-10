@@ -1,0 +1,40 @@
+﻿@model WattsALoan1.Models.Employee
+
+@{
+    ViewBag.Title = "Deleting Employee Record";
+}
+
+<h2 class="bold common-font text-center maroon">Deleting Employee Record</h2>
+
+<hr />
+
+<h3 class="common-font maroon text-center">Are you sure you want to delete this employee's record?</h3>
+
+<div class="containment">
+    <dl class="dl-horizontal common-font">
+        <dt>@Html.DisplayNameFor(model => model.EmployeeID)</dt>
+        <dd>@Html.DisplayFor(model => model.EmployeeID)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.EmployeeNumber)</dt>
+        <dd>@Html.DisplayFor(model => model.EmployeeNumber)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.FirstName)</dt>
+        <dd>@Html.DisplayFor(model => model.FirstName)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.LastName)</dt>
+        <dd>@Html.DisplayFor(model => model.LastName)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.EmploymentTitle)</dt>
+        <dd>@Html.DisplayFor(model => model.EmploymentTitle)</dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            @Html.ActionLink("Employees", "Index") ::
+            <input type="submit" value="Delete Employee Record" class="btn btn-primary" />
+        </div>
+    }
+</div>
